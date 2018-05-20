@@ -1,0 +1,11 @@
+{
+  "pages":[
+    "index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#e8eca8",
+    "navigationBarTitleText": "中餐馆地图",
+    "navigationBarTextStyle":"white"
+  }
+}
