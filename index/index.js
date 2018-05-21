@@ -2,22 +2,29 @@ Page({
   data: {
     latitude: 36.204824,
     longitude: 138.252924,
-    markers: [{
-      id: 1,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园'
-    }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: '/image/location.png'
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: '/image/location.png'
-    }]
-  },
+
+    //these are markers
+    known_restaurants: [
+      { id: 0,
+        latitude: 42.5542873,
+        longitude: -71.26417349999997, 
+        label: { content: "place1", color: "#9D5257"},
+      },
+      { id: 1,
+        latitude: 42.4262093,
+        longitude: -71.06059449999998,
+        label: { content: "place2", color: "#9D5257",},
+      },
+      { id: 2,  
+        latitude: 42.4264531, 
+        longitude: -71.19653440000002,
+        label: { content: "place3", color: "#9D5257", },
+      },
+    ],
+  
+
+  },//end of data
+
   onReady: function (e) {
     this.mapCtx = wx.createMapContext('myMap')
   },
@@ -29,9 +36,11 @@ Page({
       }
     })
   },
-  moveToLocation: function () {
+  moveToCurrentLocation: function () {
     this.mapCtx.moveToLocation()
   },
+
+  // Move designated marker to another place
   translateMarker: function() {
     this.mapCtx.translateMarker({
       markerId: 1,
@@ -48,16 +57,16 @@ Page({
   },
   includePoints: function() {
     var that = this
+    console.log(that.data.latitude)
+    console.log(that.data.longitude)
     this.mapCtx.includePoints({
-      padding: [10],
-      points: [{
-        latitude: 23.099994,
-        longitude: 113.324520,
-      }]
+      padding: [20],
+      points: that.data.known_restaurants,
     })
   },
-  getLocation: function () {
+  getCurrentLocation: function () {
     var that = this
+    // wechat's getLocation() gets current users location
     wx.getLocation({
       type: 'wgs84',
       // type: 'gcj02',
@@ -66,27 +75,7 @@ Page({
         that.data.longitude = res.longitude
         console.log(that.data.latitude)
         console.log(that.data.longitude)
-        that.data.latitude = 50.000
-        that.data.longitude = 50.000
-        console.log("after setting: \n"+ that.data.latitude)
-        console.log(that.data.longitude)
-
-        // wx.openLocation({
-        //   latitude: that.data.latitude,
-        //   longitude: that.data.longitude
-        // })
       }
     })
   },
-  wx.chooseImage({
-    success: function (res) {
-      var tempFilePaths = res.tempFilePaths
-      wx.saveFile({
-        tempFilePath: tempFilePaths[0],
-        success: function (res) {
-          var savedFilePath = res.savedFilePath
-        }
-      })
-    }
-  })
 })

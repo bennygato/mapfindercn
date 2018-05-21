@@ -1,6 +1,7 @@
 {
   "pages":[
-    "index/index"
+    "index/index",
+    "navigate/navigate"
   ],
   "window":{
     "backgroundTextStyle":"light",

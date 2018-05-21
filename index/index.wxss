@@ -6,3 +6,19 @@
 .page-body-button {
   margin-bottom: 30rpx;
 }
+.pay-text {
+    line-height: 25px;
+    margin-left: 5px;
+}
+.item {
+    box-sizing: border-box;
+    font-size: 12px;
+    margin: 20px auto 0;
+    padding: 5px 5px;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    background: rgba(255,255,255,.5);
+    display: flex;
+    border-radius: 5px;
+}

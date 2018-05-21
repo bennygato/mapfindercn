@@ -5,16 +5,21 @@
       style="width: 100%; height: 300px;"
       latitude="{{latitude}}"
       longitude="{{longitude}}"
-      markers="{{markers}}"
-      covers="{{covers}}"
+      controls="{{map_controls}}"
+      markers="{{known_restaurants}}"
       show-location
     ></map>
   </view>
    <view class="btn-area">
-    <button bindtap="getCenterLocation" class="page-body-button" type="primary">获取位置</button>
-    <button bindtap="moveToLocation" class="page-body-button" type="primary">移动位置</button>
-    <button bindtap="translateMarker" class="page-body-button" type="primary">移动标注</button>
-    <button bindtap="includePoints" class="page-body-button" type="primary">缩放视野展示所有经纬度</button>
-    <button bindtap="getLocation" class="page-body-button" type="primary">get location</button>
-  </view> 
+    <!-- <button bindtap="getCenterLocation" class="page-body-button" type="primary">获取位置</button> -->
+     <button bindtap="moveToCurrentLocation" class="page-body-button" type="primary" size="mini">move to here</button> 
+    <!-- <button bindtap="translateMarker" class="page-body-button" type="default" size="mini">translate marker</button> -->
+    <button bindtap="includePoints" class="page-body-button" type="primary" size="mini">list markers</button>
+    <button bindtap="getCurrentLocation" class="page-body-button" type="default" size="mini">get current location</button>
+
+    <!--test  -->
+    <view class="item" bindtap="onItemClick">
+      <navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</navigator>
+    </view>
+  </view>
 </view>
